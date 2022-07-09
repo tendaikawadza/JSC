@@ -1,5 +1,6 @@
 package Inventory.Management.Entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,10 +11,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-
 @Table(name="product")
 
-public class Product {
+public class Product  implements Serializable {
 	
 	@Id	
 	@SequenceGenerator(
@@ -40,18 +40,21 @@ public class Product {
 	public Product() {
 		super();
 	}
-	public Product(Date date, String productName, int reOrderLevel, String sensitivity) {
+	public Product(Date date, String productName, String productCode, int reOrderLevel, String sensitivity) {
 		super();
 		this.date = date;
 		this.productName = productName;
+		this.productCode = productCode;
 		ReOrderLevel = reOrderLevel;
 		Sensitivity = sensitivity;
 	}
-	public Product(Long productId, Date date, String productName, int reOrderLevel, String sensitivity) {
+	public Product(Long productId, Date date, String productName, String productCode, int reOrderLevel,
+			String sensitivity) {
 		super();
 		this.productId = productId;
 		this.date = date;
 		this.productName = productName;
+		this.productCode = productCode;
 		ReOrderLevel = reOrderLevel;
 		Sensitivity = sensitivity;
 	}
@@ -73,6 +76,12 @@ public class Product {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+	public String getProductCode() {
+		return productCode;
+	}
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
 	public int getReOrderLevel() {
 		return ReOrderLevel;
 	}
@@ -87,9 +96,12 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", date=" + date + ", productName=" + productName + ", ReOrderLevel="
-				+ ReOrderLevel + ", Sensitivity=" + Sensitivity + "]";
+		return "Product [productId=" + productId + ", date=" + date + ", productName=" + productName + ", productCode="
+				+ productCode + ", ReOrderLevel=" + ReOrderLevel + ", Sensitivity=" + Sensitivity + "]";
 	}
+	
+	
+	
 	
 	
 	

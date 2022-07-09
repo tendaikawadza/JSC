@@ -10,9 +10,9 @@ import Inventory.Management.Entity.Product;
 @Repository
 public interface ProductRepository  extends JpaRepository   <Product,Long> {
 
-	void deleteProductById(Long id);
-
-	Optional findProductById(Long id);
+	
+	
+	
 	
 	
 	
