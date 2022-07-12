@@ -9,25 +9,18 @@ import org.springframework.stereotype.Service;
 import Inventory.Management.Entity.Product;
 import Inventory.Management.repository.ProductRepository;
 @Service
-public class ProductsService {
+public class ProductService {
 	private final ProductRepository productRepository;
 	
 @Autowired	
 	
-	public ProductsService( ProductRepository productRepository) {
+	public ProductService( ProductRepository productRepository) {
 		this.productRepository = productRepository;		
 
 
 }
-
-
-
-
-
-public Product  addStudent(Product  product) {
-	product.setProductCode(UUID.randomUUID().toString());
-
-	
+public Product  addProuct(Product  product) {
+	product.setProductCode(UUID.randomUUID().toString());	
 	return  productRepository.save(product);
 }
 
@@ -39,12 +32,7 @@ public Product  addStudent(Product  product) {
 //}
 
 
-
-
-
-
-public  List<Product> findAllProducts(){
-	
+public  List<Product> findAllProducts(){	
 	
 	return productRepository.findAll();
 }
@@ -54,11 +42,10 @@ public Product updateProduct(Product product) {
 	return productRepository.save(product);
 	
 }
-public Optional<Product> findUserById(Long id) {
-Optional<Product> user = Optional.ofNullable(productRepository.findById(id).orElseThrow(RuntimeException::new));
-return user;
+public Optional<Product> findProductById(Long id) {
+Optional<Product> Product = Optional.ofNullable(productRepository.findById(id).orElseThrow(RuntimeException::new));
+return Product;
 }
-
 
 
 public void deleteProduct(Long id) {
@@ -66,8 +53,6 @@ public void deleteProduct(Long id) {
 	
 	
 }
-
-
 
 
 }
