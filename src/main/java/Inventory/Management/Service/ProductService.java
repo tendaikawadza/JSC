@@ -23,6 +23,9 @@ public Product  addProuct(Product  product) {
 	product.setProductCode(UUID.randomUUID().toString());	
 	return  productRepository.save(product);
 }
+public Product findProductById(Long id){
+return productRepository.findById(id).get();
+}
 
 
 
@@ -42,10 +45,10 @@ public Product updateProduct(Product product) {
 	return productRepository.save(product);
 	
 }
-public Optional<Product> findProductById(Long id) {
-Optional<Product> Product = Optional.ofNullable(productRepository.findById(id).orElseThrow(RuntimeException::new));
-return Product;
-}
+//public Optional<Product> findProductById(Long id) {
+//Optional<Product> Product = Optional.ofNullable(productRepository.findById(id).orElseThrow(RuntimeException::new));
+//return Product;
+//}
 
 
 public void deleteProduct(Long id) {
