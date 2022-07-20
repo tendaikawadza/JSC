@@ -35,8 +35,11 @@ public class Product  implements Serializable {
 	private Date date;
 	private String productName;	
 	private String productCode;
+	//quantity  int
+	
 	private int ReOrderLevel;
 	private String Sensitivity;
+	
 	public Product() {
 		super();
 	}

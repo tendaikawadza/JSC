@@ -1,7 +1,6 @@
 package Inventory.Management.Resource;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,7 +35,7 @@ public class ProductResource {
 		return new ResponseEntity<>(products,HttpStatus.OK);
 		
 	}
-	@GetMapping("/find/id")
+	@GetMapping("/find/{id}")
 	public ResponseEntity<Product>getProductById(@PathVariable("id") Long id){
 	Product product = productService.findProductById(id);
 	return new ResponseEntity<>(product, HttpStatus.OK);

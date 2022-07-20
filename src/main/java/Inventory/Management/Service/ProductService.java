@@ -35,7 +35,10 @@ return productRepository.findById(id).get();
 //}
 
 
-public  List<Product> findAllProducts(){	
+public  List<Product> findAllProducts(){
+
+
+
 	
 	return productRepository.findAll();
 }
